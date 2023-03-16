@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="67" height="66" viewBox="0 0 67 66">
+  <g id="Student-authentication" transform="translate(-98 -1431)">
+    <ellipse id="Ellipse_997" data-name="Ellipse 997" cx="33.5" cy="33" rx="33.5" ry="33" transform="translate(98 1431)" fill="#99deb3" opacity="0.4"/>
+    <g id="badge" transform="translate(116 1448)">
+      <path id="Path_13518" data-name="Path 13518" d="M20,18h7m-7,5h7" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <circle id="Ellipse_1046" data-name="Ellipse 1046" cx="2" cy="2" r="2" transform="translate(9 15)" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_13519" data-name="Path 13519" d="M16,26H6a4,4,0,0,1,4-4h2a4,4,0,0,1,4,4Z" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_13520" data-name="Path 13520" d="M19,8H31V31H1V8H13" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_13521" data-name="Path 13521" d="M19,11H13V4a3,3,0,0,1,3-3h0a3,3,0,0,1,3,3Z" fill="none" stroke="#00ac41" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
+  <defs>
+    <clipPath id="clip-Impeccable-Security-Features">
+      <rect width="56" height="56"/>
+    </clipPath>
+  </defs>
+  <g id="Impeccable-Security-Features" clip-path="url(#clip-Impeccable-Security-Features)">
+    <rect id="Rectangle_11669" data-name="Rectangle 11669" width="56" height="56" rx="4" fill="#98dbce" opacity="0.298"/>
+    <g id="lock" transform="translate(14 14.605)">
+      <path id="Path_14239" data-name="Path 14239" d="M3,11H23.283V24.522H3Z" transform="translate(0 1.268)" fill="none" stroke="#00968f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <ellipse id="Ellipse_1027" data-name="Ellipse 1027" cx="3" cy="2.5" rx="3" ry="2.5" transform="translate(10 16.701)" fill="none" stroke="#00968f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Path_14240" data-name="Path 14240" d="M18.268,12.268V6.634A5.579,5.579,0,0,0,12.747,1h-.113A5.579,5.579,0,0,0,7,6.522v5.747" transform="translate(0.507 0)" fill="none" stroke="#00968f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
