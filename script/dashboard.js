@@ -11,7 +11,8 @@ $(function(){
 const dateWrap=document.querySelector('#profile-date');
 const timeWrap=document.querySelector('#live-time');
 
-let date=new Date();
+if(dateWrap && timeWrap){
+  let date=new Date();
 let day=date.getDate();
 let month=date.getMonth()+1;
 let year=date.getFullYear();
@@ -51,31 +52,36 @@ function checkTime(i){
   }
   return i;
 }
+}
 
 // profile angle down
 const logoutBtn=document.querySelector('#profile-angle-down');
 const logoutDrop=document.querySelector('#logout-dropdown');
 
-function logout(){
+if(logoutBtn){
+  function logout(){
 
-  logoutDrop.classList.toggle("logout-dropdown");
-}
-
-logoutBtn.onclick=function(){
-  logout();
+    logoutDrop.classList.toggle("logout-dropdown");
+  }
+  
+  logoutBtn.onclick=function(){
+    logout();
+  }
 }
 
 // search box
 const searchBtn=document.querySelector('#profile-search');
 const searchBox=document.querySelector('#search-box');
 
-function displaySearch(){
+if(searchBtn){
+  function displaySearch(){
 
-  searchBox.classList.toggle("profile-search-box");
-}
-
-searchBtn.onclick=function(){
-  displaySearch();
+    searchBox.classList.toggle("profile-search-box");
+  }
+  
+  searchBtn.onclick=function(){
+    displaySearch();
+  }
 }
 
 // function navBtn(){

@@ -1,4 +1,6 @@
 // pop up login 
+
+const body =document.querySelector("#main-body");
 const loginBtn=document.querySelector("#login");
 const loginWrap=document.querySelector("#login-wrap");
 
@@ -6,7 +8,7 @@ const registerBtn=document.querySelector("#register");
 const registerWrap=document.querySelector("#register-wrap");
 
 const cancelBtn=document.querySelector("#cancel-btn");
-const regcancel=document.querySelector("#reg-cancel-btn");
+const regCancel=document.querySelector("#reg-cancel-btn");
 
 let mainContainer=document.querySelector("#main-div");
 
@@ -29,6 +31,8 @@ cancelBtn.onclick=function(){
 }
 
 function registerPop(){
+   
+   body.style.overflow = "hidden";
    registerWrap.classList.add("main-wrap-login");
    mainContainer.classList.add("login-blur");
 }
@@ -38,12 +42,14 @@ registerBtn.onclick=function(){
 }
 
 function registerClose(){
+  body.style.overflow = "auto";
   registerWrap.classList.remove("main-wrap-login")
   mainContainer.classList.remove("login-blur");
 }
 
-regcancel.onclick=function(){
+regCancel.onclick=function(){
   registerClose();
+  console.log("Im");
 }
 
 let chatbotBtn=document.querySelector("#bot-btn");

@@ -1,4 +1,13 @@
 <?php
+//Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+
 include "files.php"; //master file
 include "config.php"; //database config file
 ?>
@@ -254,7 +263,7 @@ include "config.php"; //database config file
                     <div class="mid-reg-container">
                         <h2>Register Now</h2>
                         <p>Create, Share, administer and evaluate exams</p>
-                        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+                        <form method="POST">
                             <input type="text" name="uname" id="uname" placeholder="Enter your name" required>
                             </br>
                             <input type="number" name="mob" id="mob" placeholder="Enter mobile number" required>
@@ -284,7 +293,9 @@ include "config.php"; //database config file
                     </div>
             </div>
             <div class="cancel-btn d-flex justify-content-center align-items-start">
-                <span class="fas fa-times-circle" id="reg-cancel-btn"></span>
+                <span class="d-block" id="reg-cancel-btn">
+                    <i class="fas fa-times-circle"></i>
+                </span>
             </div>
                     <?php
 
@@ -299,7 +310,29 @@ include "config.php"; //database config file
 
                             // email verification
                             $token=bin2hex(random_bytes("12"));
-                            $msg_body="
+
+
+                            // send email
+                            // Create an instance; passing `true` enables exceptions
+                            $mail = new PHPMailer(true);
+
+                            // Server settings
+                            $mail->SMTPDebug = false;                      //Enable verbose debug output
+                            $mail->isSMTP();                                            //Send using SMTP
+                            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                            $mail->Username   = 'examdeskoes@gmail.com';                     //SMTP username
+                            $mail->Password   = 'jvbbrjjiqoqvimwx';                               //SMTP password
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+                            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                        
+                            // Recipients
+                            $mail->setFrom('examdeskoes@gmail.com', 'Exam Desk');
+                            $mail->addAddress($email, $firstName.''.$lastName);     //Add a recipient
+
+                            $mail->isHTML(true);                                  //Set email format to HTML
+                            $mail->Subject = 'User Email Verification';
+                            $mail->Body    = "
                             <div style='width:100%; display:flex; justify-content:center; align-items:center;'>
                                 <div style='background:#fff; border:1px solid #f7f7f7; padding: 30px;'>
                                     <div style='display: flex; align-items:center; padding: 10px;'>
@@ -318,24 +351,29 @@ include "config.php"; //database config file
                                     </div>
                                 </div>
                             </div>
-                                ";
-                            $from_email="MIME-Version: 1.0" . "\r\n";
-                            $from_email .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                            $from_email.="From: surajaswal29@gmail.com";
+                            ";
 
-                            if(mail($email,"Exam Desk: Verification Email",$msg_body,$from_email)){
-                                // inserting data into database(ExamDesk)
-                                $query="INSERT INTO user(reg_id,username,phone,email,role,institute,password,token,status,date) 
-                                VALUES('$reg_id','$full_name','$phone','$email','$role','$institute','$password','$token','pending','$date')";
-                                $result=mysqli_query($con,$query);
+                            $sql_1 = "SELECT * FROM user WHERE email = '{$email}'";
+                            $output_1 = mysqli_query($con,$sql_1);
 
-                                if($result){
-                                    redirect("email-verification.php?status=0");
+                            if(mysqli_num_rows($output_1)>0){
+                                echo "<script>alert('User already exist!')</script>";
+                      
+                              }else{
+                                if($mail->send()){
+                                    // inserting data into database(ExamDesk)
+                                    echo $query="INSERT INTO user(reg_id,username,phone,email,role,institute,password,token,status,date) 
+                                    VALUES('$reg_id','$full_name','$phone','$email','$role','$institute','$password','$token','pending','$date')";
+                                    $result=mysqli_query($con,$query);
+    
+                                    if($result){
+                                        redirect("email-verification.php?status=0");
+                                    }
+    
+                                }else{
+                                    echo"Not sent or check your email address";
                                 }
-
-                            }else{
-                                echo"Not sent or check your email address";
-                            }
+                              }
                         }
                     ?>
         </div>

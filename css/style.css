@@ -1445,3 +1445,6 @@ body{
 .forget-pass{
     font-size: 18px;
 }
+.ov-hidden{
+    overflow: hidden !important;
+}

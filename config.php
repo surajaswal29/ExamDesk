@@ -4,7 +4,7 @@
     $host="localhost"; //Database server name
     $user="root";  //Database username
     $password=""; //Database password
-    $db_name="examdesk"; //Database Name
+    $db_name="oes"; //Database Name
 
     // connect to database
     $con=mysqli_connect($host,$user,$password,$db_name);
