@@ -342,7 +342,7 @@ include "config.php"; //database config file
                                         <h2>Dear ".$full_name."</h2>
                                         <p>You have registered in Exam Desk </p>
                                         <p>Please Click on this link to verify your email address</p>
-                                        <a href='http://localhost/oes/email-verification.php?token_id=".$token."&status=1' style='text-decoration: none; padding:4px 10px; background: #9a3bc7; border-radius:5px; color:#fff;'>Click Here</a>
+                                        <a href='http://localhost/examdesk/email-verification.php?token_id=".$token."&status=1' style='text-decoration: none; padding:4px 10px; background: #9a3bc7; border-radius:5px; color:#fff;'>Click Here</a>
                                         <h4>Thanks & Regards</h4>
                                     </div>
                                     <div style='background: #242424;padding: 10px; color:#fff; font-family: open sans;'>
